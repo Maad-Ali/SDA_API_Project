@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/hadee/IdeaProjects/SDA_API_Project/src/test/java/Hadeel">
+        <classes>
+            <class name="Hadeel.CreateUnit"></class>
+            <class name="Hadeel.UpdateUnit"></class>
+            <class name="Hadeel.ReadUnitById"></class>
+            <class name="Hadeel.DeleteUnitById"></class>
+
+            <class name="Hadeel.CreateUnit"></class>
+            <class name="Hadeel.CreateUsers"></class>
+            <class name="Hadeel.DeleteUsers"></class>
+        </classes>
+    </test>
+</suite>
