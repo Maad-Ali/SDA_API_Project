@@ -8,7 +8,7 @@ import static base_urls.BaseURL.spec;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
-public class C05GetOrganizationStatusServiceByid {
+public class C02GetOrganizationStatusServiceByid {
     @Test
     public void ReadOrgainizationByid() {
         Response response = given(spec).get("/organization-status/1");
