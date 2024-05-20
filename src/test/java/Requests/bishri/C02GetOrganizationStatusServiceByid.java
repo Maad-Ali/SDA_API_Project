@@ -1,6 +1,7 @@
-package bishri;
+package Requests.bishri;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import pojos.OrganizationStateServicePojo;
 import utilties.ObjectMapperUtils;
 import static base_urls.BaseURL.spec;
 import static io.restassured.RestAssured.given;
