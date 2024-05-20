@@ -37,7 +37,7 @@ public class GetOrganizationByAppID extends BaseURL {
                                      "number_of_groups": 11,
                                      "number_of_users": 1
                                  },
-                                 {
+                                 {gi
                                      "id": 3,
                                      "name": "Team",
                                      "number_of_groups": 7,
