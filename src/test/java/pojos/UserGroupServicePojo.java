@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public class UserGroupServicePojo {
+
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("group_type_id")
     private Integer groupTypeId;
