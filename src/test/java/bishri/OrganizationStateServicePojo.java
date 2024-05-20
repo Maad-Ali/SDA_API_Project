@@ -1,43 +1,48 @@
 package bishri;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrganizationStateServicePojo {
-	private String name;
-	private String description;
-	private int id;
-	public void setName(String name){
-		this.name = name;
-	}
-	public OrganizationStateServicePojo() {
-	}
-	public String getName(){
-		return name;
-	}
+    private String name;
+    private String description;
+    private int id;
 
-	public void setDescription(String description){
+    public void setName(String name) {
+        this.name = name;
+    }
 
-		this.description = description;
-	}
+    public OrganizationStateServicePojo() {
+    }
 
-	public String getDescription(){
-		return description;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setId(int id){
-		this.id = id;
-	}
+    public void setDescription(String description) {
 
-	public int getId(){
-		return id;
-	}
+        this.description = description;
+    }
 
-	@Override
- 	public String toString(){
-		return 
-			"OrganizationStateServicePojo{" +
-			"name = '" + name + '\'' + 
-			",description = '" + description + '\'' + 
-			",id = '" + id + '\'' + 
-			"}";
-		}
+    public String getDescription() {
+        return description;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "OrganizationStateServicePojo{" +
+                        "name = '" + name + '\'' +
+                        ",description = '" + description + '\'' +
+                        ",id = '" + id + '\'' +
+                        "}";
+    }
 }
