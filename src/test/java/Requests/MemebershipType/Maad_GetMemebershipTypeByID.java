@@ -5,9 +5,9 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.MemebershipPojo;
 import utilties.ObjectMapperUtils;
-
+import static org.testng.Assert.assertEquals;
 import static io.restassured.RestAssured.given;
-import static org.testng.AssertJUnit.assertEquals;
+
 
 public class Maad_GetMemebershipTypeByID extends BaseURL {
 
@@ -15,49 +15,34 @@ public class Maad_GetMemebershipTypeByID extends BaseURL {
     public void MembershipTypeTest() {
 
 
-    Response response = given(spec).get("/v1/user/1411/application/2/membership");
+    Response response = given(spec).get("/v1/user/32/application/2/membership");
     response.prettyPrint();
     assert response.statusCode() == 200;
 
-MemebershipPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(),MemebershipPojo.class);
-
-        assertEquals("3052", actualData.getId());
-        assertEquals("2", actualData.getApp_id());
-        assertEquals("Quaspareparts Gateway App", actualData.getApp_name());
-        assertEquals("Quaspareparts", actualData.getApp_short_name());
-        assertEquals("https://cdn-a3m-dev.clarusway.com/public/a3m-data/application/2/logo/1703352263730-picture.png", actualData.getApp_logo_url());
-        assertEquals("1411", actualData.getUser_id());
-        assertEquals("renaldo.lemke", actualData.getUsername());
-        assertEquals("Odis", actualData.getName());
-        assertEquals("Doyle", actualData.getLastname());
-        assertEquals("2e810f91-4b7f-4d78-8d18-c5e9f7491cb8", actualData.getSubscription_id());
-        assertEquals("5", actualData.getMembership_type_id());
-        assertEquals("false", actualData.getIs_individual_membership());
-        assertEquals("5", actualData.getDefault_role_id());
-        assertEquals("Business Owner", actualData.getDefault_role_name());
-        assertEquals("1715253779444611", actualData.getOrganization_id());
-        assertEquals("XYZ Inc", actualData.getOrganization_name());
-        assertEquals("SAR", actualData.getOrganization_currency());
-        assertEquals("false", actualData.getIs_owner());
-        assertEquals("true", actualData.getIs_active());
-        assertEquals("true", actualData.getIs_default());
-        assertEquals("2024-05-17T08:28:35.080717Z", actualData.getCreated_at());
-        assertEquals("1405", actualData.getCreated_by());
-        assertEquals("2024-05-17T08:28:35.080718Z", actualData.getUpdated_at());
-        assertEquals("1405", actualData.getUpdated_by());
+        MemebershipPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(),MemebershipPojo.class);
 
 
-
-
-
-
-
-
-
-
-
-
-
+        assertEquals(actualData.getId(),76);
+        assertEquals(actualData.getApp_id(),2);
+        assertEquals(actualData.getApp_name(),"Quaspareparts Gateway App");
+        assertEquals(actualData.getApp_short_name(),"Quaspareparts");
+        assertEquals(actualData.getApp_logo_url(),"https://cdn-a3m-dev.clarusway.com/public/a3m-data/application/2/logo/1703352263730-picture.png");
+        assertEquals(actualData.getUser_id(),31);
+        assertEquals(actualData.getUsername(),"assurewise@assurewise.com");
+        assertEquals(actualData.getSubscription_id(),"65c40f3b-0619-48fb-94f1-a9761b29b24d");
+        assertEquals(actualData.getMembership_type_id(),5);
+        assertEquals(actualData.getIs_individual_membership(),false);
+        assertEquals(actualData.getDefault_role_id(),5);
+        assertEquals(actualData.getDefault_role_name(), "Business Owner");
+        assertEquals(actualData.getOrganization_id(), Long.valueOf(1716152048216350L));
+        assertEquals(actualData.getOrganization_name(),"emily");
+        assertEquals(actualData.getIs_owner(),false);
+        assertEquals(actualData.getIs_active(),true);
+        assertEquals(actualData.getIs_default(),true);
+        assertEquals(actualData.getCreated_at(),"2024-05-19T20:55:00.241502Z");
+        assertEquals(actualData.getCreated_by(),25);
+        assertEquals(actualData.getUpdated_at(),"2024-05-19T20:55:00.241504Z");
+        assertEquals(actualData.getUpdated_by(),25);
 
     }
 

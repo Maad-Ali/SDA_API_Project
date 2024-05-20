@@ -18,7 +18,9 @@ public class C01_ReadCountries  extends BaseURL {
 
     Response response =given(spec).get("/country/SA");
     response.prettyPrint();
+    System.out.println("response statusCode : "+response.statusCode());
     assert response.statusCode() == 200;
+
 
     CountryPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), CountryPojo.class);
     assertEquals("Saudi Arabia", actualData.getName());
