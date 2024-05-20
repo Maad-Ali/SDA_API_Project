@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import static base_urls.BaseURL.spec;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
-
 public class C01Get_organization_status_service {
     @Test
     public void ReadAllOrgainization() throws JsonProcessingException {
