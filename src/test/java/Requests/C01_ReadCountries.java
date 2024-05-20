@@ -1,11 +1,10 @@
 package Requests;
 
 import base_urls.BaseURL;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.CountryPojo;
-import utilties.ObjectMapperUtils;
+import utilities.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.AssertJUnit.assertEquals;

@@ -4,7 +4,7 @@ import base_urls.BaseURL;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.MemebershipPojo;
-import utilties.ObjectMapperUtils;
+import utilities.ObjectMapperUtils;
 import static org.testng.Assert.assertEquals;
 import static io.restassured.RestAssured.given;
 

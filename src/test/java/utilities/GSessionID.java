@@ -1,4 +1,4 @@
-package utilties;
+package utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
@@ -34,14 +34,10 @@ public class GSessionID {
         driver.findElement(Password).sendKeys("h4VQAbAO8HNXSuE");
         driver.findElement(SignIn).click();
 // click on RoleModule page
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        By RolesModuleLink= By.id("link9");
-        wait.until(f -> {
-            driver.findElement(RolesModuleLink).getText();
-            return true;
-        });
-
-        driver.findElement(RolesModuleLink).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.findElement(By.id("link5")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.findElement(By.xpath("//button[normalize-space()='Add New Department']")).click();
 
 // get cookie
         Cookie jsessionidCookie = driver.manage().getCookieNamed("GSESSIONID");
