@@ -30,6 +30,7 @@ public class GSessionID {
         By Username = By.id("username");
         By Password = By.id("password");
         By SignIn = By.tagName("button");
+
         driver.findElement(Username).sendKeys("assurefour@four.com");
         driver.findElement(Password).sendKeys("h4VQAbAO8HNXSuE");
         driver.findElement(SignIn).click();
