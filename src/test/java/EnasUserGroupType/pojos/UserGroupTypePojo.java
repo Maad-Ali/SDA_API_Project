@@ -1,4 +1,4 @@
-package pojos;
+package EnasUserGroupType.pojos;
 public class UserGroupTypePojo {
     private int id;
     private String name;

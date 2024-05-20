@@ -1,10 +1,8 @@
-package Requests.UserGroupType;
+package EnasUserGroupType.Requests;
 
-import base_urls.BaseURL;
+import EnasUserGroupType.base_urls.BaseURL;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pojos.UserGroupTypePojo;
 
 import static io.restassured.RestAssured.given;
 

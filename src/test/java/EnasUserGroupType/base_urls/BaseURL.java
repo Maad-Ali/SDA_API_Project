@@ -1,10 +1,10 @@
-package base_urls;
+package EnasUserGroupType.base_urls;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import static utilities.GSessionID.SessionID;
+import static EnasUserGroupType.utilities.GSessionID.SessionID;
 
 
 public class BaseURL  {
