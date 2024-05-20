@@ -27,12 +27,12 @@ public class GSessionID {
         driver.navigate().to("https://qa-gm3.quaspareparts.com/");
         By LoginButton = By.className("login-button");
         driver.findElement(LoginButton).click();
-        By Username = By.id("username");
-        By Password = By.id("password");
-        By SignIn = By.tagName("button");
+        By Username=By.id("username");
+        By Password=By.id("password");
+        By SignIn =By.tagName("button");
+        driver.findElement(Username).sendKeys("assurewise@assurewise.com");
+        driver.findElement(Password).sendKeys("K_k-KaarTGk_48c");
 
-        driver.findElement(Username).sendKeys("assurefour@four.com");
-        driver.findElement(Password).sendKeys("h4VQAbAO8HNXSuE");
         driver.findElement(SignIn).click();
 // click on RoleModule page
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
