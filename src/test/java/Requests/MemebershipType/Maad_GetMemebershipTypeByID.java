@@ -25,6 +25,7 @@ public class Maad_GetMemebershipTypeByID extends BaseURL {
     response.prettyPrint();
     assert response.statusCode() == 200;
 
+    // do assertions
         List<MemebershipPojo> actualDataList = response.as(new TypeRef<List<MemebershipPojo>>() {
 
         });
