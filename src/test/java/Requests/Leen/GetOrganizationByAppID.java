@@ -1,10 +1,12 @@
 package Requests.Leen;
 
 import base_urls.BaseURL;
+import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import pojos.Leen.OrganizationByAPP;
-import pojos.Leen.OrganizationServicePojoItem;
+import pojos.Leen.OrganizationApplication;
+
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
@@ -14,64 +16,72 @@ public class GetOrganizationByAppID extends BaseURL {
     @Test
     public void getAllOrganizations() {
 
-        // https://qa-gm3.quaspareparts.com/a3m/auth/api/v1/organization/1716152048216350/summary
+        // https://qa-gm3.quaspareparts.com/a3m/auth/api/application/2/organization
         //Set the url
-        spec.pathParams("first", "v1", "second", "organization", "third","1716152048216350","fourth","summary");
+        spec.pathParams("first", "application", "second", "2", "third", "organization");
 
         //Set expected Data
         String strJson = """
                          {
-                             "id": 1716152048216350,
-                             "name": "emily",
-                             "founder_id": 25,
-                             "created_at": "2024-05-19T20:54:08.192578+00:00",
-                             "updated_at": "2024-05-19T20:54:08.192581+00:00",
-                             "number_of_applications": 1,
-                             "number_of_files": 0,
-                             "number_of_users": 10,
-                             "number_of_groups": 18,
-                             "group_types": [
-                                 {
-                                     "id": 2,
-                                     "name": "Remote Unit",
-                                     "number_of_groups": 11,
-                                     "number_of_users": 1
-                                 },
-                                 {gi
-                                     "id": 3,
-                                     "name": "Team",
-                                     "number_of_groups": 7,
-                                     "number_of_users": 0
-                                 }
-                             ]
-                         }
+                                       "id": 1,
+                                       "name": "Acme LLC",
+                                       "founder_id": 2,
+                                       "short_name": "Acme"
+                                   },
+                                   {
+                                       "id": 1716152660399179,
+                                       "name": "Emir",
+                                       "founder_id": 28
+                                   },
+                                   {
+                                       "id": 1716152801150253,
+                                       "name": "My Company",
+                                       "founder_id": 29,
+                                       "short_name": "My Comp"
+                                   },
+                                   {
+                                       "id": 1677064640369316,
+                                       "name": "Packman LLC",
+                                       "founder_id": 2
+                                   },
+                                   {
+                                       "id": 1716154971361888,
+                                       "name": "R",
+                                       "founder_id": 24
+                                   },
+                                   {
+                                       "id": 1716152048216350,
+                                       "name": "emily",
+                                       "founder_id": 25
+                                   },
+                                   {
+                                       "id": 1716152384509420,
+                                       "name": "leon",
+                                       "founder_id": 27
+                                   },
+                                   {
+                                       "id": 1716152239973093,
+                                       "name": "nancy",
+                                       "founder_id": 26
+                                   }
                 """;
 
-        OrganizationByAPP expectedData = convertJsonToJava(strJson, OrganizationByAPP.class);
+        OrganizationApplication expectedData = convertJsonToJava(strJson, OrganizationApplication.class);
         System.out.println("expectedData = " + expectedData);
 
         //Set the request and get the response
-        Response response = given(spec).get("{first}/{second}/{third}/{fourth}");
+        Response response = given(spec).get("{first}/{second}/{third}");
         response.prettyPrint();
 
         //Do Assertion
-        OrganizationByAPP actualData = response.as(OrganizationByAPP.class);
+        List<OrganizationApplication> actualDataList = response.as(new TypeRef<>() {
+        });
+        OrganizationApplication actualData = actualDataList.getFirst();//Get the first element from List
         System.out.println("actualData = " + actualData);
-
-
         assertEquals(200, response.statusCode());
-        assertEquals(actualData.getId(),expectedData.getId());
-        assertEquals(actualData.getName(),expectedData.getName());
-        assertEquals(actualData.getCreated_at(),expectedData.getCreated_at());
-        assertEquals(actualData.getFounder_id(),expectedData.getFounder_id());
-        assertEquals(actualData.getGroup_types().getFirst().getNumber_of_groups(),expectedData.getGroup_types().getFirst().getNumber_of_groups());
-        assertEquals(actualData.getGroup_types().getFirst().getNumber_of_users(),expectedData.getGroup_types().getFirst().getNumber_of_users());
-        assertEquals(actualData.getNumber_of_applications(),expectedData.getNumber_of_applications());
-        assertEquals(actualData.getNumber_of_files(),expectedData.getNumber_of_files());
-        assertEquals(actualData.getNumber_of_groups(),expectedData.getNumber_of_groups());
-        assertEquals(actualData.getNumber_of_users(),expectedData.getNumber_of_users());
-
-
-
+        assertEquals(actualData.getId(), expectedData.getId());
+        assertEquals(actualData.getName(), expectedData.getName());
+        assertEquals(actualData.getShort_name(), expectedData.getShort_name());
+        assertEquals(actualData.getFounder_id(), expectedData.getFounder_id());
     }
 }
