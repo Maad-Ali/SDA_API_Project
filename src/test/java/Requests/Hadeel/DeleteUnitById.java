@@ -1,10 +1,10 @@
-package Hadeel;
+package Requests.Hadeel;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
-import static Hadeel.CreateUnit.Unit_id;
+import static Requests.Hadeel.CreateUnit.Unit_id;
 import static base_urls.BaseURL.spec;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
