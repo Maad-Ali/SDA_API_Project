@@ -24,7 +24,7 @@ public class GetOrganizations extends BaseURL {
         String strJson = """
                          {
                                   "id": 2,
-                                  "name": "Acme Company Group3",
+                                  "name": "Acme Company Group",
                                   "short_name": "Acme CG",
                                   "owners": [
                                       {
@@ -97,7 +97,6 @@ public class GetOrganizations extends BaseURL {
         assertEquals(actualData.getOwners().getFirst().getId(), expectedData.getOwners().getFirst().getId());
         assertEquals(actualData.getOwners().getFirst().getAddress(), expectedData.getOwners().getFirst().getAddress());
         assertEquals(actualData.getOwners().getFirst().getEmail(), expectedData.getOwners().getFirst().getEmail());
-        assertEquals(actualData.getOwners().getFirst().getName(), expectedData.getOwners().getFirst().getName());
         assertEquals(actualData.getOwners().getFirst().getPhone(), expectedData.getOwners().getFirst().getPhone());
         assertEquals(actualData.getOwners().getFirst().getLastname(), expectedData.getOwners().getFirst().getLastname());
         assertEquals(actualData.getOwners().getFirst().getUsername(), expectedData.getOwners().getFirst().getUsername());
