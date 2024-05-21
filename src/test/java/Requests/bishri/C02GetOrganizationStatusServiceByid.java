@@ -13,7 +13,7 @@ public class C02GetOrganizationStatusServiceByid {
         response.prettyPrint();
         assert response.statusCode() == 200;
         OrganizationStateServicePojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), OrganizationStateServicePojo.class);
-        assertEquals("Active", actualData.getName());
+        assertEquals(actualData.getName(),"Active" );
         assertEquals(1, actualData.getId());
         assertEquals("Organization account is activated and allowed to use the application", actualData.getDescription());
     }

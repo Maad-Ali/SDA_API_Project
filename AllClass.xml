@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/DELL/IdeaProjects/SDA_API_Project/src/test/java/Requests">
+        <classes>
+            <class name="Requests.MemebershipType.Maad_GetMemebershipType">
+                <methods>
+                    <include name="MemebershipTypeTest"/>
+                </methods>
+            </class>
+            <class name="Requests.MemebershipType.Maad_GetMemebershipTypeByID">
+                <methods>
+                    <include name="MembershipTypeTest"/>
+                </methods>
+            </class>
+            <class name="Requests.Leen.GetOrganizationByAppID">
+                <methods>
+                    <include name="getAllOrganizations"/>
+                </methods>
+            </class>
+            <class name="Requests.Leen.GetOrganizationByID">
+                <methods>
+                    <include name="getAllOrganizations"/>
+                </methods>
+            </class>
+            <class name="Requests.Leen.GetOrganizations">
+                <methods>
+                    <include name="getAllOrganizations"/>
+                </methods>
+            </class>
+            <class name="Requests.Leen.PutOrganization">
+                <methods>
+                    <include name="updateOrganization"/>
+                </methods>
+            </class>
+            <class name="Requests.bishri.C01Get_organization_status_service">
+                <methods>
+                    <include name="ReadAllOrgainization"/>
+                </methods>
+            </class>
+            <class name="Requests.bishri.C02GetOrganizationStatusServiceByid">
+                <methods>
+                    <include name="ReadOrgainizationByid"/>
+                </methods>
+            </class>
+            <class name="Requests.Roles.GetRolesByApp">
+                <methods>
+                    <include name="AppRoles"/>
+                </methods>
+            </class>
+            <class name="Requests.Roles.GetRolesByOrg">
+                <methods>
+                    <include name="OrgRoles"/>
+                </methods>
+            </class>
+            <class name="Requests.Roles.GetRolesBySub">
+                <methods>
+                    <include name="SubRoles"/>
+                </methods>
+            </class>
+            <class name="Requests.Hadeel.CreateUnit">
+                <methods>
+                    <include name="createTestMethod"/>
+                </methods>
+            </class>
+            <class name="Requests.Hadeel.CreateUsers">
+                <methods>
+                    <include name="createUser"/>
+                </methods>
+            </class>
+            <class name="Requests.Hadeel.DeleteUnitById">
+                <methods>
+                    <include name="deleteMethod"/>
+                </methods>
+            </class>
+            <class name="Requests.Hadeel.DeleteUsers">
+                <methods>
+                    <include name="deleteUser"/>
+                </methods>
+            </class>
+            <class name="Requests.Hadeel.ReadAllUnit">
+                <methods>
+                    <include name="readMethod"/>
+                </methods>
+            </class>
+            <class name="Requests.Hadeel.ReadUnitById">
+                <methods>
+                    <include name="readMethod"/>
+                </methods>
+            </class>
+            <class name="Requests.Hadeel.UpdateUnit">
+                <methods>
+                    <include name="updateUnit"/>
+                </methods>
+            </class>
+            <class name="Requests.Enas.AddNewUserGroupType">
+                <methods>
+                    <include name="addNewUserGroupTypeTest"/>
+                </methods>
+            </class>
+            <class name="Requests.Enas.DeleteUserGroupTypeById">
+                <methods>
+                    <include name="GetAllUserGroupTypeTest"/>
+                </methods>
+            </class>
+            <class name="Requests.Enas.GetAllUserGroupType">
+                <methods>
+                    <include name="GetAllUserGroupTypeTest"/>
+                </methods>
+            </class>
+            <class name="Requests.Enas.GetUserGroupTypeById">
+                <methods>
+                    <include name="GetAllUserGroupTypeTest"/>
+                </methods>
+            </class>
+            <class name="Requests.Enas.UpdateUserGroupType">
+                <methods>
+                    <include name="updateUserGroupTypeTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
