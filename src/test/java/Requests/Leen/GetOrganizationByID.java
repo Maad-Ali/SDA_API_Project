@@ -1,12 +1,9 @@
 package Requests.Leen;
 
 import base_urls.BaseURL;
-import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import pojos.Leen.OrganizationServicePojoItem;
-
-import java.util.List;
+import pojos.Leen.OrganizationByAPP;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
@@ -16,109 +13,70 @@ public class GetOrganizationByID extends BaseURL {
     @Test
     public void getAllOrganizations() {
 
-        // https://qa-gm3.quaspareparts.com/a3m/auth/api/organization-group/2
+        // https://qa-gm3.quaspareparts.com/a3m/auth/api/v1/organization/1716152048216350/summary
         //Set the url
-        spec.pathParams("first", "organization-group", "second", "2");
+        spec.pathParams("first", "v1", "second", "organization", "third","1716152048216350","fourth","summary");
 
         //Set expected Data
         String strJson = """
                          {
-                                  "id": 2,
-                                  "name": "Acme Company Group3",
-                                  "short_name": "Acme CG",
-                                  "owners": [
-                                      {
-                                          "id": 2,
-                                          "name": "Boss",
-                                          "lastname": "BizOwner",
-                                          "username": "boss",
-                                          "email": "boss@test.com",
-                                          "is_email_verified": true,
-                                          "preferences": {
-                                              "sales_target": 12
-                                          },
-                                          "status_id": 1,
-                                          "created_at": "2023-01-17T19:58:44.900372Z",
-                                          "updated_at": "2023-01-17T19:58:44.900377Z"
-                                      }
-                                  ],
-                                  "organizations": [
-                                      {
-                                          "id": 1,
-                                          "name": "Acme LLC",
-                                          "founder_id": 2,
-                                          "short_name": "Acme",
-                                          "address": "Ronald Avenue McMillan Drive No. 5, Tysons, Virginia",
-                                          "phone": "15555555555",
-                                          "email": "contact@acme.com",
-                                          "website": "www.acme.com",
-                                          "fax": "15555555555",
-                                          "status_id": 1,
-                                          "organization_group_id": 2,
-                                          "created_at": "2023-01-17T20:35:06.419830Z",
-                                          "updated_at": "2023-02-22T10:54:14.929604Z",
-                                          "currency": "USD"
-                                      },
-                                      {
-                                          "id": 1677064640369316,
-                                          "name": "Packman LLC",
-                                          "founder_id": 2,
-                                          "organization_group_id": 2,
-                                          "created_at": "2023-02-22T11:17:20.308779Z",
-                                          "updated_at": "2023-02-22T11:17:20.308781Z"
-                                      }
-                                  ],
-                                  "created_at": "2023-05-08T11:52:17.047256Z",
-                                  "updated_at": "2023-05-08T11:59:45.589403Z"
-                              }
+                              "id": 1716152048216350,
+                              "name": "emily",
+                              "founder_id": 25,
+                              "created_at": "2024-05-19T20:54:08.192578+00:00",
+                              "updated_at": "2024-05-20T12:26:34.89195+00:00",
+                              "number_of_applications": 1,
+                              "number_of_files": 0,
+                              "number_of_users": 14,
+                              "number_of_groups": 48,
+                              "group_types": [
+                                  {
+                                      "id": 1,
+                                      "name": "Department",
+                                      "number_of_groups": 5,
+                                      "number_of_users": 0
+                                  },
+                                  {
+                                      "id": 3,
+                                      "name": "Team",
+                                      "number_of_groups": 26,
+                                      "number_of_users": 0
+                                  },
+                                  {
+                                      "id": 2,
+                                      "name": "Remote Unit",
+                                      "number_of_groups": 17,
+                                      "number_of_users": 2
+                                  }
+                              ]
+                          }
                 """;
 
-        OrganizationServicePojoItem expectedData = convertJsonToJava(strJson, OrganizationServicePojoItem.class);
+        OrganizationByAPP expectedData = convertJsonToJava(strJson, OrganizationByAPP.class);
         System.out.println("expectedData = " + expectedData);
 
         //Set the request and get the response
-        Response response = given(spec).get("{first}/{second}");
+        Response response = given(spec).get("{first}/{second}/{third}/{fourth}");
         response.prettyPrint();
 
         //Do Assertion
-        OrganizationServicePojoItem actualData = response.as(OrganizationServicePojoItem.class);
+        OrganizationByAPP actualData = response.as(OrganizationByAPP.class);
         System.out.println("actualData = " + actualData);
 
 
         assertEquals(200, response.statusCode());
-        assertEquals(actualData.getId(), expectedData.getId());
-        assertEquals(actualData.getName(), expectedData.getName());
-        assertEquals(actualData.getShort_name(), expectedData.getShort_name());
-        assertEquals(actualData.getCreated_at(), expectedData.getCreated_at());
-        //assertEquals(actualData.getUpdated_at(), expectedData.getUpdated_at());
+        assertEquals(actualData.getId(),expectedData.getId());
+        assertEquals(actualData.getName(),expectedData.getName());
+        assertEquals(actualData.getCreated_at(),expectedData.getCreated_at());
+        assertEquals(actualData.getFounder_id(),expectedData.getFounder_id());
+        assertEquals(actualData.getGroup_types().getFirst().getNumber_of_groups(),expectedData.getGroup_types().getFirst().getNumber_of_groups());
+        assertEquals(actualData.getGroup_types().getFirst().getNumber_of_users(),expectedData.getGroup_types().getFirst().getNumber_of_users());
+        assertEquals(actualData.getNumber_of_applications(),expectedData.getNumber_of_applications());
+        assertEquals(actualData.getNumber_of_files(),expectedData.getNumber_of_files());
+        assertEquals(actualData.getNumber_of_groups(),expectedData.getNumber_of_groups());
+        assertEquals(actualData.getNumber_of_users(),expectedData.getNumber_of_users());
 
-        assertEquals(actualData.getOwners().getFirst().getId(), expectedData.getOwners().getFirst().getId());
-        assertEquals(actualData.getOwners().getFirst().getAddress(), expectedData.getOwners().getFirst().getAddress());
-        assertEquals(actualData.getOwners().getFirst().getEmail(), expectedData.getOwners().getFirst().getEmail());
-        assertEquals(actualData.getOwners().getFirst().getName(), expectedData.getOwners().getFirst().getName());
-        assertEquals(actualData.getOwners().getFirst().getPhone(), expectedData.getOwners().getFirst().getPhone());
-        assertEquals(actualData.getOwners().getFirst().getLastname(), expectedData.getOwners().getFirst().getLastname());
-        assertEquals(actualData.getOwners().getFirst().getUsername(), expectedData.getOwners().getFirst().getUsername());
-        assertEquals(actualData.getOwners().getFirst().getStatus_id(), expectedData.getOwners().getFirst().getStatus_id());
-        assertEquals(actualData.getOwners().getFirst().getPreferences().getSales_target(), expectedData.getOwners().getFirst().getPreferences().getSales_target());
-        assertEquals(actualData.getOwners().getFirst().getUpdated_at(), expectedData.getOwners().getFirst().getUpdated_at());
-        assertEquals(actualData.getOwners().getFirst().getUpdated_by(), expectedData.getOwners().getFirst().getUpdated_by());
-        assertEquals(actualData.getOwners().getFirst().getIs_email_verified(), expectedData.getOwners().getFirst().getIs_email_verified());
-        assertEquals(actualData.getOwners().getFirst().getCreated_at(), expectedData.getOwners().getFirst().getCreated_at());
 
-        assertEquals(actualData.getOrganizations().getFirst().getId(), expectedData.getOrganizations().getFirst().getId());
-        assertEquals(actualData.getOrganizations().getFirst().getCurrency(), expectedData.getOrganizations().getFirst().getCurrency());
-        assertEquals(actualData.getOrganizations().getFirst().getOrganization_group_id(), expectedData.getOrganizations().getFirst().getOrganization_group_id());
-        assertEquals(actualData.getOrganizations().getFirst().getFax(), expectedData.getOrganizations().getFirst().getFax());
-        assertEquals(actualData.getOrganizations().getFirst().getName(), expectedData.getOrganizations().getFirst().getName());
-        assertEquals(actualData.getOrganizations().getFirst().getWebsite(), expectedData.getOrganizations().getFirst().getWebsite());
-        assertEquals(actualData.getOrganizations().getFirst().getAddress(), expectedData.getOrganizations().getFirst().getAddress());
-        assertEquals(actualData.getOrganizations().getFirst().getPhone(), expectedData.getOrganizations().getFirst().getPhone());
-        assertEquals(actualData.getOrganizations().getFirst().getFounder_id(), expectedData.getOrganizations().getFirst().getFounder_id());
-        assertEquals(actualData.getOrganizations().getFirst().getShort_name(), expectedData.getOrganizations().getFirst().getShort_name());
-        assertEquals(actualData.getOrganizations().getFirst().getEmail(), expectedData.getOrganizations().getFirst().getEmail());
-        assertEquals(actualData.getOrganizations().getFirst().getStatus_id(), expectedData.getOrganizations().getFirst().getStatus_id());
-        assertEquals(actualData.getOrganizations().getFirst().getCreated_at(), expectedData.getOrganizations().getFirst().getCreated_at());
-        assertEquals(actualData.getOrganizations().getFirst().getUpdated_at(), expectedData.getOrganizations().getFirst().getUpdated_at());
+
     }
 }
