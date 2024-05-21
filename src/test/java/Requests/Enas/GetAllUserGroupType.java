@@ -1,4 +1,4 @@
-package Enas;
+package Requests.Enas;
 
 import base_urls.BaseURL;
 import pojos.UserGroupTypePojo;
