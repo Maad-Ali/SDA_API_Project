@@ -1,15 +1,15 @@
-package bishri;
+package Requests.bishri;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import pojos.OrganizationStateServicePojo;
 
 import static base_urls.BaseURL.spec;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
-
-public class C02Get_organization_status_service {
+public class C01Get_organization_status_service {
     @Test
     public void ReadAllOrgainization() throws JsonProcessingException {
         String strJson = """
