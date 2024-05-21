@@ -23,7 +23,7 @@ public class PutOrganization extends BaseURL {
         String strJson = """
                          {
                                   "id": 2,
-                                  "name": "Acme Company Group3",
+                                  "name": "Acme Company Group",
                                   "short_name": "Acme CG",
                                   "owners": [
                                       {
