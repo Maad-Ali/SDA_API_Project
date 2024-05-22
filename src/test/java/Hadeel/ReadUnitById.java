@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
 import static Hadeel.CreateUnit.Unit_id;
 import static base_urls.BaseURL.spec;
 import static io.restassured.RestAssured.given;
@@ -12,11 +13,10 @@ import static org.testng.Assert.assertEquals;
 public class ReadUnitById {
     @Test
     public void readMethod() throws JsonProcessingException {
-        spec.pathParams("first", "user-group","second",Unit_id);
+        spec.pathParams("first", "user-group", "second", Unit_id);
         //Send the request and get the response
         Response response = given(spec).get("{first}/{second}");
         response.prettyPrint();
-
         //Do assertion
         assertEquals(response.statusCode(), 200);
         SoftAssert softAssert = new SoftAssert();
@@ -36,18 +36,18 @@ public class ReadUnitById {
         String organization_email = response.jsonPath().getString("organization.email");
 
         softAssert.assertEquals(id, Unit_id);
-        softAssert.assertEquals(name,  "Updated Unit By RestAssured");
-        softAssert.assertEquals(shortName,  "updated-04");
-        softAssert.assertEquals(groupTypeId,  3);
+        softAssert.assertEquals(name, "Updated Unit By RestAssured");
+        softAssert.assertEquals(shortName, "updated-04");
+        softAssert.assertEquals(groupTypeId, 3);
         softAssert.assertEquals(groupTypeId_id, 3);
         softAssert.assertEquals(groupTypeId_name, "Team");
         softAssert.assertEquals(groupTypeId_description, "Group of users of the company, like project teams or work groups");
         softAssert.assertEquals(organizationId, String.valueOf(CreateUnit.organization_id));
         softAssert.assertEquals(organization_id, String.valueOf(CreateUnit.organization_id));
-        softAssert.assertEquals(organization_name, "emily");
+        softAssert.assertEquals(organization_name, "Clarusway Test");
         softAssert.assertEquals(organization_founder_id, 25);
 
         softAssert.assertAll();
     }
-    }
+}
 

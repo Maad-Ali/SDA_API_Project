@@ -29,5 +29,6 @@ public class ReadAllUnit {
         softAssert.assertEquals(organization_idTest, "1715291982442324");
         softAssert.assertEquals(organizationName, "My Company");
         softAssert.assertAll();
+
     }
 }

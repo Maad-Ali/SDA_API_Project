@@ -32,7 +32,7 @@ public class GSessionID {
         By SignIn = By.tagName("button");
 
         driver.findElement(Username).sendKeys("assurefour@four.com");
-        driver.findElement(Password).sendKeys("h4VQAbAO8HNXSuE");
+        driver.findElement(Password).sendKeys("nAh7aaZA4BD75tw");
         driver.findElement(SignIn).click();
 // click on RoleModule page
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
