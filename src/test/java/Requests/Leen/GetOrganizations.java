@@ -23,54 +23,54 @@ public class GetOrganizations extends BaseURL {
         //Set expected Data
         String strJson = """
                          {
-                                  "id": 2,
-                                  "name": "Acme Company Group",
-                                  "short_name": "Acme CG",
-                                  "owners": [
-                                      {
-                                          "id": 2,
-                                          "name": "Boss",
-                                          "lastname": "BizOwner",
-                                          "username": "boss",
-                                          "email": "boss@test.com",
-                                          "is_email_verified": true,
-                                          "preferences": {
-                                              "sales_target": 12
-                                          },
-                                          "status_id": 1,
-                                          "created_at": "2023-01-17T19:58:44.900372Z",
-                                          "updated_at": "2023-01-17T19:58:44.900377Z"
-                                      }
-                                  ],
-                                  "organizations": [
-                                      {
-                                          "id": 1,
-                                          "name": "Acme LLC",
-                                          "founder_id": 2,
-                                          "short_name": "Acme",
-                                          "address": "Ronald Avenue McMillan Drive No. 5, Tysons, Virginia",
-                                          "phone": "15555555555",
-                                          "email": "contact@acme.com",
-                                          "website": "www.acme.com",
-                                          "fax": "15555555555",
-                                          "status_id": 1,
-                                          "organization_group_id": 2,
-                                          "created_at": "2023-01-17T20:35:06.419830Z",
-                                          "updated_at": "2023-02-22T10:54:14.929604Z",
-                                          "currency": "USD"
-                                      },
-                                      {
-                                          "id": 1677064640369316,
-                                          "name": "Packman LLC",
-                                          "founder_id": 2,
-                                          "organization_group_id": 2,
-                                          "created_at": "2023-02-22T11:17:20.308779Z",
-                                          "updated_at": "2023-02-22T11:17:20.308781Z"
-                                      }
-                                  ],
-                                  "created_at": "2023-05-08T11:52:17.047256Z",
-                                  "updated_at": "2023-05-08T11:59:45.589403Z"
-                              }
+                                       "id": 2,
+                                       "name": "Acme Company Group",
+                                       "short_name": "Acme CG",
+                                       "owners": [
+                                           {
+                                               "id": 2,
+                                               "name": "Boss",
+                                               "lastname": "BizOwner",
+                                               "username": "boss",
+                                               "email": "boss@test.com",
+                                               "is_email_verified": true,
+                                               "preferences": {
+                                                   "sales_target": 12
+                                               },
+                                               "status_id": 1,
+                                               "created_at": "2023-01-17T19:58:44.900372Z",
+                                               "updated_at": "2023-01-17T19:58:44.900377Z"
+                                           }
+                                       ],
+                                       "organizations": [
+                                           {
+                                               "id": 1677064640369316,
+                                               "name": "Packman LLC",
+                                               "founder_id": 2,
+                                               "organization_group_id": 2,
+                                               "created_at": "2023-02-22T11:17:20.308779Z",
+                                               "updated_at": "2023-02-22T11:17:20.308781Z"
+                                           },
+                                           {
+                                               "id": 1,
+                                               "name": "Acme LLC",
+                                               "founder_id": 2,
+                                               "short_name": "Acme",
+                                               "address": "Ronald Avenue McMillan Drive No. 5, Tysons, Virginia",
+                                               "phone": "15555555555",
+                                               "email": "contact@acme.com",
+                                               "website": "www.acme.com",
+                                               "fax": "15555555555",
+                                               "status_id": 1,
+                                               "organization_group_id": 2,
+                                               "created_at": "2023-01-17T20:35:06.419830Z",
+                                               "updated_at": "2023-02-22T10:54:14.929604Z",
+                                               "currency": "USD"
+                                           }
+                                       ],
+                                       "created_at": "2023-05-08T11:52:17.047256Z",
+                                       "updated_at": "2024-05-21T22:01:34.033992Z"
+                                   }
                 """;
 
         OrganizationServicePojoItem expectedData = convertJsonToJava(strJson, OrganizationServicePojoItem.class);

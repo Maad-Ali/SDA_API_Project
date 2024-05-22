@@ -20,24 +20,31 @@ public class GetOrganizationByID extends BaseURL {
         //Set expected Data
         String strJson = """
                         {
-                            "id": 1716291130693086,
-                            "name": "EmilY",
-                            "founder_id": 25,
-                            "created_at": "2024-05-21T11:32:10.667635+00:00",
-                            "updated_at": "2024-05-21T11:32:10.667636+00:00",
-                            "number_of_applications": 1,
-                            "number_of_files": 0,
-                            "number_of_users": 16,
-                            "number_of_groups": 2,
-                            "group_types": [
-                                {
-                                    "id": 2,
-                                    "name": "Remote Unit",
-                                    "number_of_groups": 2,
-                                    "number_of_users": 0
-                                }
-                            ]
-                        }
+                             "id": 1716291130693086,
+                             "name": "Clarusway Test",
+                             "founder_id": 25,
+                             "email": "ClaruswayTest@Test.com",
+                             "created_at": "2024-05-21T11:32:10.667635+00:00",
+                             "updated_at": "2024-05-21T20:12:01.684713+00:00",
+                             "number_of_applications": 1,
+                             "number_of_files": 0,
+                             "number_of_users": 18,
+                             "number_of_groups": 7,
+                             "group_types": [
+                                 {
+                                     "id": 1,
+                                     "name": "Department",
+                                     "number_of_groups": 3,
+                                     "number_of_users": 0
+                                 },
+                                 {
+                                     "id": 2,
+                                     "name": "Remote Unit",
+                                     "number_of_groups": 4,
+                                     "number_of_users": 0
+                                 }
+                             ]
+                         }
                 """;
 
         OrganizationByAPP expectedData = convertJsonToJava(strJson, OrganizationByAPP.class);
